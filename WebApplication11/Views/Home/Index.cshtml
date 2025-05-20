@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Injection Analyzer";
+}
+
+<h2>Script Injection Checker</h2>
+
+@using (Html.BeginForm("CheckScript", "Home", FormMethod.Post))
+{
+    <textarea name="scriptInput" rows="10" cols="70" placeholder="Paste your script here..."></textarea>
+    <br />
+    <br />
+    <input type="submit" value="Analyze Script" class="btn btn-primary" />
+}
+
+@if (ViewBag.Result != null)
+{
+    <div style="margin-top:20px;">
+        <h4>@ViewBag.Result</h4>
+        @if (!string.IsNullOrEmpty(ViewBag.Details as string))
+        {
+            <p>Detected Patterns: @ViewBag.Details</p>
+        }
+    </div>
+}

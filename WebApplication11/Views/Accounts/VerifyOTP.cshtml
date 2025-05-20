@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Verify OTP";
+}
+
+<h2>Two-Factor Verification</h2>
+
+<p>We sent a verification code to your email.</p>
+
+@using (Html.BeginForm())
+{
+    <label>Enter OTP:</label>
+    <br />
+    <input type="text" name="inputOtp" />
+    <br />
+    <br />
+    <input type="submit" value="Verify" class="btn btn-success" />
+}
+
+@if (ViewBag.Error != null)
+{
+    <p style="color:red;">@ViewBag.Error</p>
+}
